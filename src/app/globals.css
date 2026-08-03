@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  /* Trailhead palette — inspired by topo maps, canvas packs, and rust hardware */
+  --canvas: #f2ede0;
+  --canvas-raised: #ece4d1;
+  --ink: #21261f;
+  --ink-soft: #4b5346;
+  --forest: #223b2c;
+  --forest-deep: #172a1f;
+  --moss: #5c7a52;
+  --rust: #bf5730;
+  --rust-deep: #9c4425;
+  --signal: #d99b2b;
+  --line: #cdc2a4;
+  --paper: #faf7ee;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-canvas-raised: var(--canvas-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-moss: var(--moss);
+  --color-rust: var(--rust);
+  --color-rust-deep: var(--rust-deep);
+  --color-signal: var(--signal);
+  --color-line: var(--line);
+  --color-paper: var(--paper);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Contour-line texture used sparingly as a signature background */
+.contour-bg {
+  background-image:
+    repeating-radial-gradient(circle at 15% 20%, transparent 0, transparent 22px, rgba(34, 59, 44, 0.05) 23px, transparent 24px),
+    repeating-radial-gradient(circle at 85% 70%, transparent 0, transparent 30px, rgba(191, 87, 48, 0.05) 31px, transparent 32px);
+}
+
+.tag-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+}
+
+.stitch-border {
+  border: 1px dashed var(--line);
+}
+
+::selection {
+  background-color: var(--rust);
+  color: var(--paper);
+}
+
+/* Focus visibility for accessibility */
+:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
